@@ -1,0 +1,20 @@
+{
+  "name": "dashboard-api",
+  "version": "1.0.0",
+  "description": "Web API for technology dashboard",
+  "main": "server.js",
+  "dependencies": {
+    "hapi": "^16.4.3",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ssnj-git01.billtrust.local:tbartolucci/dashboard-api.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
