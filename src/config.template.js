@@ -1,4 +1,5 @@
 var config = {
+    port: 0,
     db: {
         host: "",
         username: "",
