@@ -8,6 +8,7 @@
     "mysql": "^2.13.0"
   },
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-debug": "^3.1.0",
     "gulp-inject": "^4.2.0",

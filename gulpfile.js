@@ -8,9 +8,9 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
     Config = require('./gulpfile.config'),
-    tsProject = tsc.createProject('tsconfig.json'),
-    browserSync = require('browser-sync'),
-    superstatic = require( 'superstatic' );
+    tsProject = tsc.createProject('tsconfig.json');
+//    browserSync = require('browser-sync'),
+//    superstatic = require( 'superstatic' );
 
 var config = new Config();
 
@@ -72,22 +72,22 @@ gulp.task('watch', function() {
     gulp.watch([config.allTypeScript], ['ts-lint', 'compile-ts']);
 });
 
-gulp.task('serve', ['compile-ts', 'watch'], function() {
-    process.stdout.write('Starting browserSync and superstatic...\n');
-    browserSync({
-        port: 3000,
-        files: ['index.html', '**/*.js'],
-        injectChanges: true,
-        logFileChanges: false,
-        logLevel: 'silent',
-        logPrefix: 'angularin20typescript',
-        notify: true,
-        reloadDelay: 0,
-        server: {
-            baseDir: './src',
-            middleware: superstatic({ debug: false})
-        }
-    });
-});
+// gulp.task('serve', ['compile-ts', 'watch'], function() {
+//     process.stdout.write('Starting browserSync and superstatic...\n');
+//     browserSync({
+//         port: 3000,
+//         files: ['index.html', '**/*.js'],
+//         injectChanges: true,
+//         logFileChanges: false,
+//         logLevel: 'silent',
+//         logPrefix: 'angularin20typescript',
+//         notify: true,
+//         reloadDelay: 0,
+//         server: {
+//             baseDir: './src',
+//             middleware: superstatic({ debug: false})
+//         }
+//     });
+// });
 
 gulp.task('default', ['ts-lint', 'compile-ts']);
