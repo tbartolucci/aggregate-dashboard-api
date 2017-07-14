@@ -1,4 +1,12 @@
-function hello(compiler: string) {
-    console.log(`Hello from ${compiler}`);
-}
-hello("TypeScript");
+import * as Hapi from 'hapi';
+
+const server = new Hapi.Server();
+server.connection({ port: 3000, host: 'localhost' });
+
+server.start((err) => {
+
+    if (err) {
+        throw err;
+    }
+    console.log(`Server running at: ${server.info.uri}`);
+});
