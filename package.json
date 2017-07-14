@@ -1,0 +1,26 @@
+{
+  "name": "dashboard-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ssnj-git01.billtrust.local:tbartolucci/dashboard-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.0",
+    "typescript": "^2.4.1"
+  },
+  "dependencies": {
+    "hapi": "^16.4.3"
+  }
+}
