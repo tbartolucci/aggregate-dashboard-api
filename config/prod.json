@@ -1,0 +1,10 @@
+{
+    "server": {
+        "port": 3000,
+        "corsOrigins": ["https://dashboard.billtrust.local"]
+    },
+    "swagger": {
+        "schemes": "https",
+        "host": ""
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "server": {
+        "port": 3060,
+        "corsOrigins": ["http://localhost:3000"] // ["http://localhost:3000", "http://localhost:3030", "http://orangexps:3030"]
+    },
+    "swagger": {
+        "schemes": "http",
+        "host": "localhost:3060"
+    }
+}
