@@ -32,6 +32,8 @@
     "config": "^1.26.1",
     "cors": "^2.8.4",
     "fastify": "^0.29.0",
+    "fastify-jwt": "^0.1.0",
+    "fastify-swagger": "0.0.1",
     "hapi": "^16.4.3",
     "knex": "^0.13.0",
     "mysql": "^2.13.0"

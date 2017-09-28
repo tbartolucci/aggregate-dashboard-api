@@ -1,30 +1,13 @@
 import * as fastify from 'fastify';
 import * as cors from 'cors';
-const config = require('config');
-
-import DashboardResponder from './responder/dashboardResponder';
+import LastRunRoute from './route/lastRunRoute';
 
 const server: fastify.FastifyInstance = fastify();
 
-const opts: fastify.RouteShorthandOptions = {
-    schema: {
-        response: {
-            200: {
-                type: 'object',
-                properties: {
-                    lastRun: {
-                        type: 'string'
-                    }
-                }
-            }
-        }
-    }
-};
-
-const dashResponder = new DashboardResponder();
+const lastRunRoute = new LastRunRoute();
 
 server.use(cors());
-server.get('/api/last-run', dashResponder.getLastRun);
+server.get('/api/last-run', lastRunRoute.getOptions(), lastRunRoute.getHandler());
 
 server.listen(3000, err => {
     if (err) throw err
