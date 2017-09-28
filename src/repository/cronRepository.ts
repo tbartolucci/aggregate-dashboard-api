@@ -11,25 +11,22 @@ export default class CronRepository {
     /**
      * Update the last execution time
      *
-     * @param $time
+     * @param time
      * @return int|void
-     *
-    public function updatePrimaryLastRun($time)
-    {
-        if( empty($time) ){
-            return;
-        }
-        if( is_string($time) ) {
-            $time = strtotime($time);
+     */
+    public updatePrimaryLastRun(time: string): PromiseLike<any> {
+
+        let timeObj = new Date(time);
+
+        if ( isNaN(timeObj.getTime()) ){
+            timeObj = new Date();
         }
 
-        if ( is_int($time) ){
-            $time = date('Y-m-d H:i:s', $time);
-        }
-
-        return $this->db->updateColumnByKey('cron_jobs', 'lastRun', $time, 'jobName', 'PrimaryUpdate');
+        return this.knex('cron_jobs')
+            .where('jobName','=','PrimaryUpdate')
+            .update({ 'lastRun': timeObj })
+            .then();
     }
-*/
 
     /**
      * @return mixed
