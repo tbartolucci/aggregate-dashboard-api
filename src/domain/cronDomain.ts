@@ -1,7 +1,7 @@
 
 import Knex = require('knex');
 
-export default class CronRepository {
+export default class CronDomain {
     private knex: Knex;
 
     constructor(k: Knex) {
