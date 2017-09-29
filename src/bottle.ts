@@ -6,26 +6,28 @@ import DashboardResponder from './responder/dashboardResponder';
 import CronDomain from './domain/cronDomain';
 import DashboardAction from './action/dashboardAction';
 import {IContainer} from 'bottlejs';
+import Knex = require('knex');
+
+const dbHost = config.db.host;
+const dbUser = config.db.username;
+const dbPassword = config.db.password;
+const dbSchema = config.db.schema;
+
+const knex = require('knex')({
+    client: 'mysql',
+    connection: {
+        host : dbHost,
+        user : dbUser,
+        password : dbPassword,
+        database : dbSchema
+    }
+});
 
 export default class Container {
     private bottle: Bottle;
 
     public constructor(){
         this.bottle = new Bottle();
-        const dbHost = config.db.host;
-        const dbUser = config.db.username;
-        const dbPassword = config.db.password;
-        const dbSchema = config.db.schema;
-
-        const knex = require('knex')({
-            client: 'mysql',
-            connection: {
-                host : dbHost,
-                user : dbUser,
-                password : dbPassword,
-                database : dbSchema
-            }
-        });
 
         this.bottle.service( 'Db', knex);
 
@@ -44,6 +46,14 @@ export default class Container {
         this.bottle.factory('LastRunRoute', function(container) {
             return new LastRunRoute(container);
         });
+    }
+
+    public getDashboardAction(): DashboardAction{
+        return this.bottle.container.DashboardAction as DashboardAction;
+    }
+
+    public getLastRunRoute(): LastRunRoute {
+        return this.bottle.container.LastRunRoute as LastRunRoute;
     }
 
     public getContainer(): IContainer{
