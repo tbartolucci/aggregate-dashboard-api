@@ -1,10 +1,12 @@
 import * as fastify from 'fastify';
 import * as cors from 'cors';
-import LastRunRoute from './route/lastRunRoute';
+import Container from './bottle';
+
+let bottle = new Container();
 
 const server: fastify.FastifyInstance = fastify();
 
-const lastRunRoute = new LastRunRoute();
+const lastRunRoute = bottle.getContainer().LastRunRoute;
 
 server.use(cors());
 server.get('/api/last-run', lastRunRoute.getOptions(), lastRunRoute.getHandler());
